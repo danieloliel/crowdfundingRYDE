@@ -17,7 +17,11 @@ contract Crowdfunding {
         bool complete;
 
     }
-    
+    address payable owner;
+
+    constructor(){
+        owner= payable(msg.sender);
+    }
     uint public numCampaigns;
 
     mapping (uint => Campaign) public campaigns;
@@ -57,7 +61,10 @@ contract Crowdfunding {
         campaign.raised += msg.value;
         if (campaign.raised >= campaign.goal) {
             campaign.complete = true;
-            campaign.creator.transfer(campaign.raised);
+            uint ownerTax = campaign.raised / 20; // 5% tax is 1/20th of the contribution
+            campaign.creator.transfer(campaign.raised - ownerTax); // transfer contribution minus the owner tax
+            owner.transfer(ownerTax); // transfer the owner tax to the owner
+            
         }
     }
 

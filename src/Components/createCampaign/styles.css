@@ -3,12 +3,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: black;
+  padding-bottom: 50px;
 }
 .heading-text {
   color: #d6bb84;
 }
 .campaigns-form {
+  padding: 30px;
   display: flex;
+  background-color: #141414;
+  border-radius: 25px;
 }
 .left {
   display: flex;
@@ -50,4 +55,8 @@
   color: #fff;
   background-color: #d6bb84;
   margin-top: 10px;
+}
+
+.wallet{
+  color: aliceblue;
 }

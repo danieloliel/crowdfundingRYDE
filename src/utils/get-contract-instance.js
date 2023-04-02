@@ -6,7 +6,7 @@ export const getContractInstance = (signer = null) => {
     "http://127.0.0.1:7545"
   );
   return new ethers.Contract(
-    "0xA5f8D6235A8863da3Af0128B57a2f80e48964306",
+    "0x2300a063080DfFFd621F878CeD5fFDDcf7850357",
     abi,
     signer || provider
   );
