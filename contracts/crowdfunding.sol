@@ -26,10 +26,7 @@ contract Crowdfunding {
 
     mapping (uint => Campaign) public campaigns;
     
-    function sayHello() public pure returns (string memory) {
-    return "Hello, World!";
-    }
-
+   
     function createCampaign(string memory _title, string memory _description, uint _goal,
      uint _deadline, string memory _image) public returns(uint, address , string memory, string memory,uint ,uint ,string memory,uint,bool ) {
         Campaign storage c = campaigns[numCampaigns];
@@ -72,16 +69,7 @@ contract Crowdfunding {
         return (campaigns[_campaignIndex].donators, campaigns[_campaignIndex].donations);
     }
 
-    // function getCampaigns() public view returns (Campaign[] memory){
-    //     Campaign[] memory allCampaigns = new Campaign[](numCampaigns);
 
-    //     for (uint i = 0; i < numCampaigns; i++){
-    //         Campaign storage _campaign = campaigns[i];
-    //         allCampaigns[i] = _campaign;
-    //     }
-    //         return allCampaigns;
-    //     }
-    
     function getCampaigns() view public returns (address[] memory, string[] memory, string[] memory, uint[] memory, uint[] memory, string[] memory, uint[] memory, bool[] memory) {
         address[] memory creators = new address[](numCampaigns);
         string[] memory titles = new string[](numCampaigns);
@@ -108,16 +96,10 @@ contract Crowdfunding {
     }
 
 
-    // function withdraw(uint _campaignIndex) public {
-    //     Campaign storage campaign = campaigns[_campaignIndex];
-    //     require(campaign.complete == false, "Campaign already complete.");
-    //     //uint amount = campaign.contributions[msg.sender];
-    //     require(amount > 0, "No contributions found.");
-    //     campaign.contributions[msg.sender] = 0;
-    //     campaign.raised -= amount;
-    //     payable(msg.sender).transfer(amount);
-    // }
+
 }
+
+
 
 //שלבים להעלאת החוזה
 //truffle migrate --reset 
